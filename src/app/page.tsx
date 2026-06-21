@@ -31,16 +31,20 @@ export default function Home() {
 
   return <>
     <header className="container topbar">
-      <a href="/" className="logo">出前どれ得？</a>
-      <span className="small">めんどいラボ 第3弾</span>
+      <a href="/" className="logo"><span className="labMark">🧪</span>出前どれ得？</a>
+      <span className="labLabel">めんどいラボ 第3弾</span>
     </header>
     <main className="container hero">
       <span className="adNotice">価格比較・注文代行ではありません</span>
-      <h1>出前どれ得？ 🧪</h1>
+      <div className="foodLabels" aria-label="今日の出前候補">
+        <span>🍔 ハンバーガー</span><span>🍕 ピザ</span><span>🍣 寿司</span><span>🍱 お弁当</span>
+      </div>
+      <h1>出前、どれから見る？</h1>
       <p className="lead">Uber・出前館・Wolt・menu、今日どれから開くべきか診断</p>
-      <p className="lead">出前、どれが安いか毎回見るのめんどい。<br />今日どのアプリから開くべきかだけ先に診断します。</p>
+      <p className="dailyProblem">Uber開いて、出前館開いて、またUber戻る…。<br />それ、毎回めんどい。</p>
+      <p className="heroSupport">今日どのアプリから開くべきかだけ、6問で先に整理します。</p>
 
-      <div className="card" style={{ marginTop: 32 }}>
+      <div className="card diagnosisCard" style={{ marginTop: 28 }}>
         <div className="stepHeader">
           <span className="badge">Q{step + 1} / {questions.length}</span>
           <span className="small">回答済み {completed} 問</span>
@@ -56,7 +60,10 @@ export default function Home() {
           )}
           <button className="btn secondary" onClick={reset}>リセット</button>
         </div>
-        {!isCurrentAnswered && <p className="small" style={{ marginTop: 12 }}>この質問に答えると次へ進めます。</p>}
+        <p className="stepNudge">
+          {step >= 4 ? "あと少しで、今日のおすすめ確認順が出ます。" : "だいたいでOK。今日の気分に近いものを選んでください。"}
+        </p>
+        {!isCurrentAnswered && <p className="small answerHint">この質問に答えると次へ進めます。</p>}
       </div>
     </main>
     <FaqSection />

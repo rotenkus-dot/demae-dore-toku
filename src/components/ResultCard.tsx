@@ -11,14 +11,15 @@ export function ResultCard({ result }: { result: DiagnosisResult }) {
       <div className="resultNotice adNotice">リアルタイム価格比較・最安保証ではありません</div>
 
       <section className="card conclusionCard" style={{ marginTop: 16 }}>
-        <span className="badge">出前どれ得？ 診断結果</span>
+        <span className="badge">🍽 今日の確認スタート地点</span>
         <p className="catch">{type.shortTitle}</p>
         <h1 className="resultTitle">{type.title}</h1>
         <p>{type.summary}</p>
       </section>
 
       <section className="card ok" style={{ marginTop: 14 }}>
-        <h2>おすすめ確認順</h2>
+        <span className="sectionLabel">迷子にならない4ステップ</span>
+        <h2>今日のおすすめ確認順</h2>
         <ol className="orderCardList">
           {type.checkingOrder.map((item, i) => (
             <li key={item} className="orderCardItem">
@@ -30,18 +31,19 @@ export function ResultCard({ result }: { result: DiagnosisResult }) {
       </section>
 
       <section className="card" style={{ marginTop: 14 }}>
-        <h2>この順番になった理由</h2>
+        <h2>この順番になった理由 📝</h2>
         <ul className="list">{type.reasons.map((reason) => <li key={reason}>{reason}</li>)}</ul>
       </section>
 
       <section className="card warn" style={{ marginTop: 14 }}>
-        <h2>確認しておくこと</h2>
+        <h2>注文ボタンの前に、ここだけ確認</h2>
         <ul className="list">{type.cautions.map((item) => <li key={item}>{item}</li>)}</ul>
       </section>
 
       <section className="card ctaCard" style={{ marginTop: 14 }}>
-        <h2>各アプリを確認する</h2>
-        <p className="small">リンクはv0.1用の仮導線です。公式・提携リンク確定後に差し替えます。</p>
+        <span className="sectionLabel">必要なものだけでOK</span>
+        <h2>まず確認してみる</h2>
+        <p className="small">全部開かなくても大丈夫です。おすすめ確認順の上から、気になるものだけ見てください。</p>
         <div className="searchGrid">{type.ctaButtons.map((link) => <SearchButton key={link.kind} link={link} />)}</div>
       </section>
 
