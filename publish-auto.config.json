@@ -1,5 +1,9 @@
 {
   "projectPath": "/Users/user/Documents/Codex/2026-06-20/pc-2-cta-1-2-pc/demae-dore-toku",
-  "publishUrl": "公開URL",
-  "pushEnabled": true
+  "publishUrl": "",
+  "pushEnabled": true,
+  "createRepoEnabled": true,
+  "deployEnabled": true,
+  "repoVisibility": "private",
+  "autoUrlEnabled": true
 }
